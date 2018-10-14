@@ -11,6 +11,7 @@
 |-- Mcanettii_R2.fastq.gz
 |-- NC000962_3.fasta
 |-- NC000962_3.gbk
+`-- NexteraPE-PE.fa
 
 ```
 # gzip these files
