@@ -1,63 +1,324 @@
 
+
+# contents of the directory at the start
+
+```
+.
+|-- MAFBRA00707_R1.fastq
+|-- MAFBRA00707_R2.fastq
+|-- MAF.sh
+|-- Mcanettii_R1.fastq.gz
+|-- Mcanettii_R2.fastq.gz
+|-- NC000962_3.fasta
+|-- NC000962_3.gbk
+
 ```
 # gzip these files
+
+
+```
+
 
 gzip -dc MAFBRA00707_R1.fastq.gz > MAFBRA00707_R1.fastq
 
 
 gzip -dc MAFBRA00707_R2.fastq.gz > MAFBRA00707_R2.fastq
 
+```
+
 
 
 # trimmomatic <<<<<
 
 
+```
 
 java -jar /opt/Trimmomatic-0.36/trimmomatic-0.36.jar PE -phred33 MAFBRA00707_R1.fastq MAFBRA00707_R2.fastq MAFBRA00707_1_trimmed_paired.fastq MAFBRA00707_1_trimmed_unpaired.fastq MAFBRA00707_2_trimmed_paired.fastq MAFBRA00707_2_trimmed_unpaired.fastq ILLUMINACLIP:NexteraPE-PE.fa:2:30:10: LEADING:3 TRAILING:3 SLIDINGWINDOW:4:20 MINLEN:36
 
 
+
+```
+
+## result of trimmomatic 
+
+```
+.
+|-- after_trimmomatic.txt
+|-- MAFBRA00707_1_trimmed_paired.fastq
+|-- MAFBRA00707_1_trimmed_unpaired.fastq
+|-- MAFBRA00707_2_trimmed_paired.fastq
+|-- MAFBRA00707_2_trimmed_unpaired.fastq
+|-- MAFBRA00707_R1.fastq
+|-- MAFBRA00707_R1.fastq.gz
+|-- MAFBRA00707_R2.fastq
+|-- MAFBRA00707_R2.fastq.gz
+|-- MAF.sh
+|-- Mcanettii_R1.fastq.gz
+|-- Mcanettii_R2.fastq.gz
+|-- NC000962_3.fasta
+|-- NC000962_3.gbk
+`-- NexteraPE-PE.fa
+
+0 directories, 15 files
+
+
+```
+
+
 # bwa_index_reference_genome <<<<<
 
-
+```
 bwa index NC000962_3.fasta
 
+```
 
+## after 
+
+```
+
+.
+|-- after_bwa_index.txt
+|-- after_trimmomatic.txt
+|-- MAFBRA00707_1_trimmed_paired.fastq
+|-- MAFBRA00707_1_trimmed_unpaired.fastq
+|-- MAFBRA00707_2_trimmed_paired.fastq
+|-- MAFBRA00707_2_trimmed_unpaired.fastq
+|-- MAFBRA00707_R1.fastq
+|-- MAFBRA00707_R1.fastq.gz
+|-- MAFBRA00707_R2.fastq
+|-- MAFBRA00707_R2.fastq.gz
+|-- MAF.sh
+|-- Mcanettii_R1.fastq.gz
+|-- Mcanettii_R2.fastq.gz
+|-- NC000962_3.fasta
+|-- NC000962_3.fasta.amb
+|-- NC000962_3.fasta.ann
+|-- NC000962_3.fasta.bwt
+|-- NC000962_3.fasta.pac
+|-- NC000962_3.fasta.sa
+|-- NC000962_3.gbk
+`-- NexteraPE-PE.fa
+
+0 directories, 21 files
+
+```
 
 # map_and_generate_sam_file <<<<<
 
 
+```
 bwa mem -R "@RG\tID:MAFBRA00707\tSM:MAFBRA00707\tPL:Illumina" -M NC000962_3.fasta MAFBRA00707_1_trimmed_paired.fastq MAFBRA00707_2_trimmed_paired.fastq > MAFBRA00707.sam
 
+```
+
+## after 
+
+```
+.
+|-- after_bwa_index.txt
+|-- after_bwa_mem.txt
+|-- after_trimmomatic.txt
+|-- MAFBRA00707_1_trimmed_paired.fastq
+|-- MAFBRA00707_1_trimmed_unpaired.fastq
+|-- MAFBRA00707_2_trimmed_paired.fastq
+|-- MAFBRA00707_2_trimmed_unpaired.fastq
+|-- MAFBRA00707_R1.fastq
+|-- MAFBRA00707_R1.fastq.gz
+|-- MAFBRA00707_R2.fastq
+|-- MAFBRA00707_R2.fastq.gz
+|-- MAFBRA00707.sam
+|-- MAF.sh
+|-- Mcanettii_R1.fastq.gz
+|-- Mcanettii_R2.fastq.gz
+|-- NC000962_3.fasta
+|-- NC000962_3.fasta.amb
+|-- NC000962_3.fasta.ann
+|-- NC000962_3.fasta.bwt
+|-- NC000962_3.fasta.pac
+|-- NC000962_3.fasta.sa
+|-- NC000962_3.gbk
+`-- NexteraPE-PE.fa
+
+0 directories, 23 files
+
+```
 
 # samtools_faidx_reference_genome <<<<<
 
-
+```
 samtools faidx NC000962_3.fasta
+```
 
+## after 
+
+```
+.
+|-- after_bwa_index.txt
+|-- after_bwa_mem.txt
+|-- after_sam_faidx.txt
+|-- after_trimmomatic.txt
+|-- MAFBRA00707_1_trimmed_paired.fastq
+|-- MAFBRA00707_1_trimmed_unpaired.fastq
+|-- MAFBRA00707_2_trimmed_paired.fastq
+|-- MAFBRA00707_2_trimmed_unpaired.fastq
+|-- MAFBRA00707_R1.fastq
+|-- MAFBRA00707_R1.fastq.gz
+|-- MAFBRA00707_R2.fastq
+|-- MAFBRA00707_R2.fastq.gz
+|-- MAFBRA00707.sam
+|-- MAF.sh
+|-- Mcanettii_R1.fastq.gz
+|-- Mcanettii_R2.fastq.gz
+|-- NC000962_3.fasta
+|-- NC000962_3.fasta.amb
+|-- NC000962_3.fasta.ann
+|-- NC000962_3.fasta.bwt
+|-- NC000962_3.fasta.fai
+|-- NC000962_3.fasta.pac
+|-- NC000962_3.fasta.sa
+|-- NC000962_3.gbk
+`-- NexteraPE-PE.fa
+
+0 directories, 25 files
+
+```
 
 
 
 # convert_sam_file_to_bam_file <<<<<
 
-
+```
 samtools view -bt NC000962_3.fasta.fai MAFBRA00707.sam > MAFBRA00707.bam
+```
 
 
+## after 
+
+```
+.
+|-- after_bwa_index.txt
+|-- after_bwa_mem.txt
+|-- after_sam_faidx.txt
+|-- after_sam_to_bam.txt
+|-- after_trimmomatic.txt
+|-- MAFBRA00707_1_trimmed_paired.fastq
+|-- MAFBRA00707_1_trimmed_unpaired.fastq
+|-- MAFBRA00707_2_trimmed_paired.fastq
+|-- MAFBRA00707_2_trimmed_unpaired.fastq
+|-- MAFBRA00707.bam
+|-- MAFBRA00707_R1.fastq
+|-- MAFBRA00707_R1.fastq.gz
+|-- MAFBRA00707_R2.fastq
+|-- MAFBRA00707_R2.fastq.gz
+|-- MAFBRA00707.sam
+|-- MAF.sh
+|-- Mcanettii_R1.fastq.gz
+|-- Mcanettii_R2.fastq.gz
+|-- NC000962_3.fasta
+|-- NC000962_3.fasta.amb
+|-- NC000962_3.fasta.ann
+|-- NC000962_3.fasta.bwt
+|-- NC000962_3.fasta.fai
+|-- NC000962_3.fasta.pac
+|-- NC000962_3.fasta.sa
+|-- NC000962_3.gbk
+`-- NexteraPE-PE.fa
+
+0 directories, 27 files
+
+```
 
 
 # sort_bam_file <<<<<
 
 
+```
 samtools sort MAFBRA00707.bam -o MAFBRA00707.sorted.bam
+```
 
+## after 
+
+```
+.
+|-- after_bwa_index.txt
+|-- after_bwa_mem.txt
+|-- after_sam_faidx.txt
+|-- after_sam_to_bam.txt
+|-- after_samtools_sort.txt
+|-- after_trimmomatic.txt
+|-- MAFBRA00707_1_trimmed_paired.fastq
+|-- MAFBRA00707_1_trimmed_unpaired.fastq
+|-- MAFBRA00707_2_trimmed_paired.fastq
+|-- MAFBRA00707_2_trimmed_unpaired.fastq
+|-- MAFBRA00707.bam
+|-- MAFBRA00707_R1.fastq
+|-- MAFBRA00707_R1.fastq.gz
+|-- MAFBRA00707_R2.fastq
+|-- MAFBRA00707_R2.fastq.gz
+|-- MAFBRA00707.sam
+|-- MAFBRA00707.sorted.bam
+|-- MAF.sh
+|-- Mcanettii_R1.fastq.gz
+|-- Mcanettii_R2.fastq.gz
+|-- NC000962_3.fasta
+|-- NC000962_3.fasta.amb
+|-- NC000962_3.fasta.ann
+|-- NC000962_3.fasta.bwt
+|-- NC000962_3.fasta.fai
+|-- NC000962_3.fasta.pac
+|-- NC000962_3.fasta.sa
+|-- NC000962_3.gbk
+`-- NexteraPE-PE.fa
+
+0 directories, 29 files
+
+```
 
 
 
 # samtools_index_sorted_bam <<<<<
 
-
+```
 samtools index MAFBRA00707.sorted.bam
+```
 
+## after 
+
+```
+.
+|-- after_bwa_index.txt
+|-- after_bwa_mem.txt
+|-- after_sam_faidx.txt
+|-- after_sam_to_bam.txt
+|-- after_samtools_sort.txt
+|-- after_trimmomatic.txt
+|-- MAFBRA00707_1_trimmed_paired.fastq
+|-- MAFBRA00707_1_trimmed_unpaired.fastq
+|-- MAFBRA00707_2_trimmed_paired.fastq
+|-- MAFBRA00707_2_trimmed_unpaired.fastq
+|-- MAFBRA00707.bam
+|-- MAFBRA00707_R1.fastq
+|-- MAFBRA00707_R1.fastq.gz
+|-- MAFBRA00707_R2.fastq
+|-- MAFBRA00707_R2.fastq.gz
+|-- MAFBRA00707.sam
+|-- MAFBRA00707.sorted.bam
+|-- MAF.sh
+|-- Mcanettii_R1.fastq.gz
+|-- Mcanettii_R2.fastq.gz
+|-- NC000962_3.fasta
+|-- NC000962_3.fasta.amb
+|-- NC000962_3.fasta.ann
+|-- NC000962_3.fasta.bwt
+|-- NC000962_3.fasta.fai
+|-- NC000962_3.fasta.pac
+|-- NC000962_3.fasta.sa
+|-- NC000962_3.gbk
+`-- NexteraPE-PE.fa
+
+0 directories, 29 files
+
+```
 
 
 
