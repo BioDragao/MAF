@@ -1,0 +1,14 @@
+Abhinavs-MacBook-Pro:list_of_files eklavya$ diff before_analysis.txt after_trimmomatic.txt 
+0a1,6
+> .
+> |-- after_trimmomatic.txt
+> |-- MAFBRA00707_1_trimmed_paired.fastq
+> |-- MAFBRA00707_1_trimmed_unpaired.fastq
+> |-- MAFBRA00707_2_trimmed_paired.fastq
+> |-- MAFBRA00707_2_trimmed_unpaired.fastq
+1a8
+> |-- MAFBRA00707_R1.fastq.gz
+2a10
+> |-- MAFBRA00707_R2.fastq.gz
+9a18
+> 0 directories, 15 files
