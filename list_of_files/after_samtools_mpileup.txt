@@ -1,0 +1,36 @@
+.
+|-- after_bwa_index.txt
+|-- after_bwa_mem.txt
+|-- after_sam_faidx.txt
+|-- after_sam_to_bam.txt
+|-- after_samtools_mpileup.txt
+|-- after_samtools_sort.txt
+|-- after_trimmomatic.txt
+|-- MAFBRA00707_1_trimmed_paired.fastq
+|-- MAFBRA00707_1_trimmed_unpaired.fastq
+|-- MAFBRA00707_2_trimmed_paired.fastq
+|-- MAFBRA00707_2_trimmed_unpaired.fastq
+|-- MAFBRA00707.bam
+|-- MAFBRA00707_R1.fastq
+|-- MAFBRA00707_R1.fastq.gz
+|-- MAFBRA00707_R2.fastq
+|-- MAFBRA00707_R2.fastq.gz
+|-- MAFBRA00707.raw.vcf
+|-- MAFBRA00707.sam
+|-- MAFBRA00707.sorted.bam
+|-- MAFBRA00707.sorted.bam.bai
+|-- MAFBRA00707_stats.txt
+|-- MAF.sh
+|-- Mcanettii_R1.fastq.gz
+|-- Mcanettii_R2.fastq.gz
+|-- NC000962_3.fasta
+|-- NC000962_3.fasta.amb
+|-- NC000962_3.fasta.ann
+|-- NC000962_3.fasta.bwt
+|-- NC000962_3.fasta.fai
+|-- NC000962_3.fasta.pac
+|-- NC000962_3.fasta.sa
+|-- NC000962_3.gbk
+`-- NexteraPE-PE.fa
+
+0 directories, 33 files
