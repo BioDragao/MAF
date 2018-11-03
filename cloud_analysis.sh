@@ -22,3 +22,9 @@ wget -O NC000962_3.gbk "https://onedrive.live.com/download?cid=F699D7C1FD1AA8A8&
 NexteraPE-PE.fa
 
 wget -O NexteraPE-PE.fa "https://onedrive.live.com/download?cid=F699D7C1FD1AA8A8&resid=F699D7C1FD1AA8A8%216882&authkey=ANWfGV1Fmo-owWM"
+
+
+#######################################################
+
+# run single commands in the vagrant box
+vagrant ssh -c 'sudo service httpd restart'
