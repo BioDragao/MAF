@@ -3,13 +3,13 @@ TODO: Repeat the analysis using the Vagrant image on scaleway servers
 https://github.com/BioDragao/ITGE2017_RIO_vagrant
 
 
-MAFBRA00707_R1.fastq
+MAFBRA00707_R1.fastq.gz
 
-wget -O MAFBRA00707_R1.fastq "https://onedrive.live.com/download?cid=F699D7C1FD1AA8A8&resid=F699D7C1FD1AA8A8%216965&authkey=ACPPpCf-Qd81K8o"
+wget -O MAFBRA00707_R1.fastq.gz "https://onedrive.live.com/download?cid=F699D7C1FD1AA8A8&resid=F699D7C1FD1AA8A8%216965&authkey=ACPPpCf-Qd81K8o"
 
-MAFBRA00707_R2.fastq
+MAFBRA00707_R2.fastq.gz
 
-wget -O MAFBRA00707_R2.fastq "https://onedrive.live.com/download?cid=F699D7C1FD1AA8A8&resid=F699D7C1FD1AA8A8%216966&authkey=ACuK1gPigeI01Wo"
+wget -O MAFBRA00707_R2.fastq.gz "https://onedrive.live.com/download?cid=F699D7C1FD1AA8A8&resid=F699D7C1FD1AA8A8%216966&authkey=ACuK1gPigeI01Wo"
 
 NC000962_3.fasta
 
