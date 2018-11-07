@@ -1,0 +1,22 @@
+#lang pollen
+ 
+MAF analysis
+============
+ 
+I am using the `scaleway` servers to carry on this analysis
+
+
+```racket
+
+(define x 9)
+
+
+```
+
+
+```clojure
+
+(defn add9 [x]
+	(+ x 9))
+
+```

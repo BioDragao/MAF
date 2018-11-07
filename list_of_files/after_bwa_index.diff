@@ -1,0 +1,13 @@
+Abhinavs-MacBook-Pro:list_of_files eklavya$ diff after_bwa_index.txt after_trimmomatic.txt 
+2d1
+< |-- after_bwa_index.txt
+16,20d14
+< |-- NC000962_3.fasta.amb
+< |-- NC000962_3.fasta.ann
+< |-- NC000962_3.fasta.bwt
+< |-- NC000962_3.fasta.pac
+< |-- NC000962_3.fasta.sa
+24c18
+< 0 directories, 21 files
+---
+> 0 directories, 15 files
