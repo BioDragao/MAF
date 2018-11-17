@@ -1030,4 +1030,17 @@ snippy --cpus 4 --outdir MAFBRA00707 --ref ./NC000962_3.gbk --R1 ./MAFBRA00707_R
 
 # ALL DONE
 
+
+
+TODO:
+
+Now we added the analysis of RD-Analyzer technique to better understand the results 
+
+https://github.com/BioDragao/RD-Analyzer
+
+```
+
+$ python2.7 RD-Analyzer-extended.py NC000962_3.fasta MAFBRA00707_R1.fastq 
+
+
 ```
