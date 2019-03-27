@@ -502,12 +502,13 @@ updated_list_of_pending_urls = initial_urls_list
 # subprocess.call(["/usr/bin/aria2c", "--version"])
 
 for url in initial_urls_list:
-    print(url)
-    subprocess.call(["aria2c" , url])
+     print("\n>>>>>>>>>>>>>>>\n")
+     print(url)
+     subprocess.call(["aria2c" , url])
 
-    updated_list_of_pending_urls.remove(url)
-    with open("updated_list_of_pending_downloads.json", 'w') as outfile:
-        json.dump(updated_list_of_pending_urls, outfile)
+     updated_list_of_pending_urls.remove(url)
+     with open("updated_list_of_pending_downloads.json", 'w') as outfile:
+          json.dump(updated_list_of_pending_urls, outfile)
 
 
 
