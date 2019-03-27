@@ -4,7 +4,7 @@
  
 (module setup racket/base
   (provide (all-defined-out))
-  (define poly-targets '(html )))
+  (define poly-targets '(html)))
  
 (define (get-date)
   (date->string (current-date)))
