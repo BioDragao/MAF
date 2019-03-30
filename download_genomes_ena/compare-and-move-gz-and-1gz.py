@@ -133,13 +133,13 @@ with open('duplicate_files_list_dict.json', 'w') as json_file:
 # # - same size
 
 
-for l in duplicate_files_list_dict:
-    if (l['md5sum_gz_file'] == l['md5sum_1gz_file']) and \
-       (l['gz_file_size'] == l['1gz_file_size']) and \
-       (l['gz_file_size'] ==  l['1gz_file_size']):
-        print("\n##################")
-        print(l['gz_file_name'], " and ", l['1gz_file_name'], " are exactly the same!")
-        print("@@@@@@@@@@@@@@@@@@")
+# for l in duplicate_files_list_dict:
+#     if (l['md5sum_gz_file'] == l['md5sum_1gz_file']) and \
+#        (l['gz_file_size'] == l['1gz_file_size']) and \
+#        (l['gz_file_size'] ==  l['1gz_file_size']):
+#         print("\n##################")
+#         print(l['gz_file_name'], " and ", l['1gz_file_name'], " are exactly the same!")
+#         print("@@@@@@@@@@@@@@@@@@")
 #        print("md5sum of file1 : ", l['md5sum_gz_file'])
 #         print("md5sum of file2 : ", l['md5sum_1gz_file'])
 #         print("@@@@@@@@@@@@@@@@@@")
