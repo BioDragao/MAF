@@ -485,7 +485,7 @@ links = [
     ]
 
 
-with open("urls_to_be_downloaded.json", 'wb') as outfile:
+with open("urls_to_be_downloaded.json", 'w') as outfile:
     json.dump(links, outfile)
 
 initial_urls_list = []
