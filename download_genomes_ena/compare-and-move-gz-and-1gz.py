@@ -105,32 +105,32 @@ def move_file_1gz_to_1gz_files_folder(f):
 #      "md5sum_1gz_file" : md5sum_local_file("ERR216904_2.fastq.1.gz")}
 
 
-# duplicate_files_list_dict = []
+duplicate_files_list_dict = []
 
-# for f1 in all_gz_files:
-#     for f2 in all_1gz_files:
-#         if f1.split(".")[0] == f2.split(".")[0]:
-#             print(f1, " and ", f2, " are similar")
-#             duplicate_files_list_dict.append(
-#                 {"gz_file_name" : f1 ,
-#                  "1gz_file_name" : f2,
-#                  "md5sum_gz_file" : md5sum_local_file(f1) ,
-#                  "md5sum_1gz_file" : md5sum_local_file(f2),
-#                  "gz_file_size" : get_local_file_size(f1),
-#                  "1gz_file_size" : get_local_file_size(f2)})
+for f1 in all_gz_files:
+    for f2 in all_1gz_files:
+        if f1.split(".")[0] == f2.split(".")[0]:
+            print(f1, " and ", f2, " are similar")
+            duplicate_files_list_dict.append(
+                {"gz_file_name" : f1 ,
+                 "1gz_file_name" : f2,
+                 "md5sum_gz_file" : md5sum_local_file(f1) ,
+                 "md5sum_1gz_file" : md5sum_local_file(f2),
+                 "gz_file_size" : get_local_file_size(f1),
+                 "1gz_file_size" : get_local_file_size(f2)})
 
-# with open('duplicate_files_list_dict.json', 'w') as json_file:
-#     json.dump(duplicate_files_list_dict, json_file)
-
-
-with open('duplicate_files_list_dict.json') as f:
-  duplicate_files_list_dict = json.load(f)
+with open('duplicate_files_list_dict.json', 'w') as json_file:
+    json.dump(duplicate_files_list_dict, json_file)
 
 
-# DONE: Move the files matching the following criteria to a new folder
-# - similar names
-# - same digest
-# - same size
+# with open('duplicate_files_list_dict.json') as f:
+#   duplicate_files_list_dict = json.load(f)
+
+
+# # DONE: Move the files matching the following criteria to a new folder
+# # - similar names
+# # - same digest
+# # - same size
 
 
 for l in duplicate_files_list_dict:
@@ -140,16 +140,16 @@ for l in duplicate_files_list_dict:
         print("\n##################")
         print(l['gz_file_name'], " and ", l['1gz_file_name'], " are exactly the same!")
         print("@@@@@@@@@@@@@@@@@@")
-        print("md5sum of file1 : ", l['md5sum_gz_file'])
-        print("md5sum of file2 : ", l['md5sum_1gz_file'])
-        print("@@@@@@@@@@@@@@@@@@")
-        print("size of file1 : ", l['gz_file_size'])
-        print("size of file2 : ", l['1gz_file_size'])
-        print("@@@@@@@@@@@@@@@@@@")
-        print("Moving ",l['1gz_file_name'], " to 1gz_files folder")
-        move_file_1gz_to_1gz_files_folder(l['1gz_file_name'])
-        print("##################\n")
-    else:
-        print("\n\nTHERE IS SOMETHING WRONG WITH ", l['1gz_file_name'], " AND ", l['1gz_file_name'], "\n\n")
+#        print("md5sum of file1 : ", l['md5sum_gz_file'])
+#         print("md5sum of file2 : ", l['md5sum_1gz_file'])
+#         print("@@@@@@@@@@@@@@@@@@")
+#         print("size of file1 : ", l['gz_file_size'])
+#         print("size of file2 : ", l['1gz_file_size'])
+#         print("@@@@@@@@@@@@@@@@@@")
+#         print("Moving ",l['1gz_file_name'], " to 1gz_files folder")
+#         move_file_1gz_to_1gz_files_folder(l['1gz_file_name'])
+#         print("##################\n")
+#     else:
+#         print("\n\nTHERE IS SOMETHING WRONG WITH ", l['1gz_file_name'], " AND ", l['1gz_file_name'], "\n\n")
 
 
