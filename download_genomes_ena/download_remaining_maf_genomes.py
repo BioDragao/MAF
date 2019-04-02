@@ -999,3 +999,12 @@ ftp_of_all_remaining_genomes = [
 # - copy this downloaded genome into a different folder
 
 
+
+for ftp_link in ftp_of_all_remaining_genomes:
+     subprocess.call(["aria2c" , ftp_link])
+     ftp_file_name = ftp_link.split("/")[-1]
+     shutil.move(ftp_file,"./completed_download/")
+
+
+
+
